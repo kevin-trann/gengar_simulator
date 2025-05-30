@@ -8,33 +8,45 @@ public class Animation extends JPanel{
     public void paintComponent(Graphics g) { //method to draw 2D shapes
         super.paintComponent(g); //draws just background (to update visuals)
         Graphics2D g2d = (Graphics2D) g;
+
+        //platform
+        g2d.setColor(new Color(245, 245, 220));
+        g2d.fillOval(0, 403, 425, 50);
+
+        //platform outline
+        g2d.setColor(Color.WHITE);
+        g2d.setStroke(new BasicStroke(3));
+        g2d.drawOval(0, 403, 425, 50);
+
         g2d.setColor(new Color(125, 120, 163));
-        //body
-        g2d.fillOval(30, 233, 175, 200);
-    
-        //arms
-        g2d.fillOval(6, 290, 70, 70);
-        g2d.fillPolygon(new int [] {240,210,210}, new int [] {330,310, 330}, 3);
-        g2d.fillPolygon(new int [] {240,210,210}, new int [] {320,300, 320}, 3);
-        g2d.fillPolygon(new int [] {230,200,200}, new int [] {340,320, 340}, 3);
-    
-        g2d.fillOval(150, 290, 80, 60);
-        //tail
-        g2d.fillPolygon(new int [] {5,55,45}, new int [] {380,370,400}, 3);
-    
-        //legs
-        g2d.fillRect(40, 330, 46, 110);
+        // body
+        g2d.fillOval(130, 233, 175, 200);
+
+        // arms
+        g2d.fillOval(106, 290, 70, 70);
+        g2d.fillPolygon(new int [] {340,310,310}, new int [] {330,310, 330}, 3);
+        g2d.fillPolygon(new int [] {340,310,310}, new int [] {320,300, 320}, 3);
+        g2d.fillPolygon(new int [] {330,300,300}, new int [] {340,320, 340}, 3);
+
+        g2d.fillOval(250, 290, 80, 60);
+
+        // tail
+        g2d.fillPolygon(new int [] {105,155,145}, new int [] {380,370,400}, 3);
+
+        // legs
         g2d.fillRect(140, 330, 46, 110);
-        g2d.fillOval(137, 370, 60, 60);
-        g2d.fillPolygon(new int [] {200,160,160}, new int [] {440,410, 440}, 3);
-    
-        //top
-        g2d.fillPolygon(new int [] {30,45,75}, new int [] {230,278,247}, 3);
-        g2d.fillPolygon(new int [] {220,180,160}, new int [] {230,310,248}, 3);
-        g2d.fillPolygon(new int [] {90,97,137}, new int [] {240,220, 240}, 3);
-        g2d.fillPolygon(new int [] {70,77,117}, new int [] {250,230, 250}, 3);
-        g2d.fillPolygon(new int [] {187,137,140}, new int [] {250,220, 250}, 3);
-        g2d.fillPolygon(new int [] {200,160,160}, new int [] {250,220, 250}, 3);
+        g2d.fillRect(240, 330, 46, 110);
+        g2d.fillOval(237, 370, 60, 60);
+        g2d.fillPolygon(new int [] {300,260,260}, new int [] {440,410, 440}, 3);
+
+        // top
+        g2d.fillPolygon(new int [] {130,145,175}, new int [] {230,278,247}, 3);
+        g2d.fillPolygon(new int [] {320,280,260}, new int [] {230,310,248}, 3);
+        g2d.fillPolygon(new int [] {190,197,237}, new int [] {240,220, 240}, 3);
+        g2d.fillPolygon(new int [] {170,177,217}, new int [] {250,230, 250}, 3);
+        g2d.fillPolygon(new int [] {287,237,240}, new int [] {250,220, 250}, 3);
+        g2d.fillPolygon(new int [] {300,260,260}, new int [] {250,220, 250}, 3);
+
 
         //log
         g2d.setColor(new Color(86,50,50));
@@ -52,6 +64,10 @@ public class Animation extends JPanel{
             
             g2d.setColor(new Color(48, 25, 52));
             g2d.fillOval(250 + x, 263 + y, 70, 70);
+
+            g2d.setColor(Color.black);
+            g2d.setStroke(new BasicStroke(0));
+            g2d.drawOval(250 + x, 263 + y, 70, 70);
             
             g2d.setColor(new Color(237, 142, 233));
             g2d.fillOval(267 + x, 280 + y, 34, 34);

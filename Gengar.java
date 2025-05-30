@@ -38,15 +38,19 @@ private static boolean tox5 = false;
         frame.setLayout(null);
         frame.add(this);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setTitle("Gengar Simulator by Kevin Tran");
         
         JLabel tip = new JLabel(" "); //sets up JLabel
         tip.setFont(new Font("Verdana", Font.PLAIN, 25));
         tip.setBounds(800, 285, 400, 200);
         tip.setVerticalAlignment(SwingConstants.TOP);
         frame.add(tip);
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
+        Border border = BorderFactory.createLineBorder(Color.WHITE, 1);
         tip.setVisible(false);
         tip.setBorder(border);
+
+        frame.getContentPane().setBackground(new Color(10, 10, 40)); //changing background color
+        b.setBackground(new Color(10, 10, 40));
 
         JButton button1 = new JButton(); //sets up JButton visuals
         button1.setText("Shadow Ball");
@@ -78,7 +82,8 @@ private static boolean tox5 = false;
 
         JSeparator groundLine = new JSeparator(JSeparator.HORIZONTAL); //sets up JSeparator
         groundLine.setBounds(0, 500, 1300, 500);
-        groundLine.setForeground(Color.BLACK);
+        groundLine.setForeground(Color.WHITE);
+        tip.setForeground(Color.WHITE);
 
         button1.addActionListener(e -> { //sets up ActionListners for each button 
             tip.setVerticalAlignment(SwingConstants.CENTER); 
@@ -125,7 +130,7 @@ private static boolean tox5 = false;
             y = 0;
 
         new Thread(() -> {
-            for(int i = 0; i < 95; i++){
+            for(int i = 0; i < 65; i++){
                 x = x-=1;
                 y = y+=1;
                 b.repaint(); //repaints drawing with new shadow ball visuals
