@@ -17,8 +17,14 @@ private static boolean shadowBall = false; //Tracks if Shadow Ball is activated 
 private static boolean dreamEater = false; //Tracks if Dream Eater is activated (true if clicked)
 private static boolean toxic = false; //Tracks if Toxic is activated (true if clicked)
 private static boolean shadowPunch = false; //Tracks if Shadow Punch is activated (true if clicked)
-private static int x = 0;
-private static int y = 0;
+private static int x = 0; //x-value for animation
+private static int y = 0; //y-value for animation
+
+private static boolean tox1 = false; //for Toxic animation
+private static boolean tox2 = false; 
+private static boolean tox3 = false; 
+private static boolean tox4 = false; 
+private static boolean tox5 = false; 
 
 
     public Gengar()
@@ -144,7 +150,40 @@ private static int y = 0;
             dreamEater = false;
             toxic = true;
             shadowPunch = false;
-            b.repaint();
+
+            tox1 = false;
+            tox2 = false;
+            tox3 = false;
+            tox4 = false;
+            tox5 = false;
+            
+            new Thread(() -> {
+            for(int i = 0; i < 6; i++){
+                if(i >=1){
+                    tox1 = true;
+                }
+                if(i >=2){
+                    tox2 = true;
+                }
+                if(i >=3){
+                    tox3 = true;
+                }
+                if(i >=4){
+                    tox4 = true;
+                }
+                if(i >=5){
+                    tox5 = true;
+                }
+                b.repaint(); //repaints drawing with new shadow ball visuals
+
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException a) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }).start();
+
         });
 
         button4.addActionListener(e -> {
@@ -244,5 +283,11 @@ private static int y = 0;
     public static boolean getShadowPunch() {return shadowPunch;}
     public static int getXX() {return x;}
     public static int getYY() {return y;}
+
+    public static boolean getTox1(){return tox1;}
+    public static boolean getTox2(){return tox2;}
+    public static boolean getTox3(){return tox3;}
+    public static boolean getTox4(){return tox4;}
+    public static boolean getTox5(){return tox5;}
 
 }

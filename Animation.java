@@ -110,22 +110,49 @@ public class Animation extends JPanel{
         }
         //Toxic Visuals
         else if (Gengar.getToxic() == true){
+
+            boolean bubbles1 = Gengar.getTox1();
+            boolean bubbles2 = Gengar.getTox2();
+            boolean bubbles3 = Gengar.getTox3();
+            boolean bubbles4 = Gengar.getTox4();
+            boolean bubbles5 = Gengar.getTox5();
+
             g2d.setColor(new Color (158, 98, 227));
-            g2d.fillOval(552, 24, 16, 16);
-            g2d.fillOval(556, 74, 10, 10);
-            g2d.fillOval(556, 124, 10, 10);
-            g2d.fillOval(568, 49, 13, 13);
 
-            g2d.fillOval(472, 24, 16, 16);
-            g2d.fillOval(482, 74, 10, 10);
-            g2d.fillOval(460, 49, 13, 13);
-            g2d.fillOval(472, 94, 10, 10);
+            //bubbles
+            
+            if(bubbles1){
             g2d.fillOval(482, 114, 10, 10);
+            g2d.fillOval(556, 124, 10, 10);
+            }
 
+            if(bubbles2){
+            g2d.fillOval(472, 94, 10, 10);
+            }
+            
+            if(bubbles3){
+            g2d.fillOval(482, 74, 10, 10);
+            g2d.fillOval(556, 74, 10, 10);
+            }
+
+            if(bubbles4){
+            g2d.fillOval(568, 49, 13, 13);
+            g2d.fillOval(460, 49, 13, 13);
+            }
+
+            if(bubbles5){
+            g2d.fillOval(472, 24, 16, 16);
+            g2d.fillOval(552, 24, 16, 16);
+            }
+            
+
+            //puddles
             g2d.fillOval(445, 139, 60, 10);
             g2d.fillOval(515, 148, 60, 10);
             g2d.fillOval(465, 148, 60, 10);
             g2d.fillOval(540, 140, 60, 10);
+            
+            
             
         }
 
