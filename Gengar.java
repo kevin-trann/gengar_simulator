@@ -17,6 +17,8 @@ private static boolean shadowBall = false; //Tracks if Shadow Ball is activated 
 private static boolean dreamEater = false; //Tracks if Dream Eater is activated (true if clicked)
 private static boolean toxic = false; //Tracks if Toxic is activated (true if clicked)
 private static boolean shadowPunch = false; //Tracks if Shadow Punch is activated (true if clicked)
+private static int x = 0;
+private static int y = 0;
 
 
     public Gengar()
@@ -82,7 +84,24 @@ private static boolean shadowPunch = false; //Tracks if Shadow Punch is activate
             dreamEater = false; // turns off other moves to ensure it doesnt draw two moves at once if a move was used before this
             toxic = false; 
             shadowPunch = false;
-            b.repaint(); //repaints drawing with new shadow ball visuals
+
+            x = 0;
+            y = 0;
+
+        new Thread(() -> {
+            for(int i = 0; i < 235; i++){
+                x = x+=1;
+                y = y-=1.01;
+                b.repaint(); //repaints drawing with new shadow ball visuals
+
+                try {
+                    Thread.sleep(4);
+                } catch (InterruptedException a) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }).start();
+            
         });
 
         button2.addActionListener(e -> {
@@ -95,7 +114,24 @@ private static boolean shadowPunch = false; //Tracks if Shadow Punch is activate
             dreamEater = true;
             toxic = false;
             shadowPunch = false;
-            b.repaint();
+
+            x = 0;
+            y = 0;
+
+        new Thread(() -> {
+            for(int i = 0; i < 95; i++){
+                x = x-=1;
+                y = y+=1;
+                b.repaint(); //repaints drawing with new shadow ball visuals
+
+                try {
+                    Thread.sleep(8);
+                } catch (InterruptedException a) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }).start();
+
         });
 
         button3.addActionListener(e -> {
@@ -121,7 +157,23 @@ private static boolean shadowPunch = false; //Tracks if Shadow Punch is activate
             dreamEater = false;
             toxic = false;
             shadowPunch = true;
-            b.repaint();
+
+            x = 0;
+            y = 0;
+            
+            new Thread(() -> {
+            for(int i = 0; i < 170; i++){
+                x = x+=1;
+                y = y-=1.01;
+                b.repaint(); //repaints drawing with new shadow ball visuals
+
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException a) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }).start();
         });
 
         button1.addMouseListener(new MouseAdapter() { // adds mouseListener to each JButton to displays attack stats
@@ -190,4 +242,7 @@ private static boolean shadowPunch = false; //Tracks if Shadow Punch is activate
     public static boolean getDreamEater() {return dreamEater;}
     public static boolean getToxic() {return toxic;}
     public static boolean getShadowPunch() {return shadowPunch;}
+    public static int getXX() {return x;}
+    public static int getYY() {return y;}
+
 }

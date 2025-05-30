@@ -46,58 +46,67 @@ public class Animation extends JPanel{
 
         //Shadow Ball visuals
         if (Gengar.getShadowBall() == true){ //if Shadow Ball is clicked, draw visuals for Shadow Ball
+
+            int x = Gengar.getXX();
+            int y = Gengar.getYY();
+            
             g2d.setColor(new Color(48, 25, 52));
-            g2d.fillOval(250, 233, 70, 70);
+            g2d.fillOval(250 + x, 263 + y, 70, 70);
             
             g2d.setColor(new Color(237, 142, 233));
-            g2d.fillOval(267, 250, 34, 34);
+            g2d.fillOval(267 + x, 280 + y, 34, 34);
             
             g2d.setColor(new Color(48, 25, 52));
-            g2d.fillOval(270, 252, 29, 29);
+            g2d.fillOval(270 + x, 282 + y, 29, 29);
             
             g2d.setColor(Color.BLACK);
-            g2d.fillOval(250, 233, 10, 10);
-            g2d.fillOval(276, 257, 16, 16);
-            g2d.fillOval(246, 289, 10, 10);
-            g2d.fillOval(316, 289, 10, 10);
-            g2d.fillOval(312, 234, 10, 10);
+            g2d.fillOval(250 + x, 263 + y, 10, 10);
+            g2d.fillOval(276 + x, 287 + y, 16, 16);
+            g2d.fillOval(246 + x, 319 + y, 10, 10);
+            g2d.fillOval(316 + x, 319 + y, 10, 10);
+            g2d.fillOval(312 + x, 264 + y, 10, 10);
+        
             
         }
 
         //Dream Eater visuals
         else if (Gengar.getDreamEater() == true){
 
+            int x = Gengar.getXX();
+            int y = Gengar.getYY();
+
+
             //pink circles
-            g2d.setColor(new Color(255,143,143));
-            g2d.fillOval(452, 234, 13, 13);
-            g2d.fillOval(402, 204, 13, 13);
-            g2d.fillOval(320, 215, 13, 13);
-            g2d.fillOval(260, 170, 13, 13);
-            g2d.fillOval(340, 285, 13, 13);
-            g2d.fillOval(356, 160, 13, 13);
-            g2d.fillOval(396, 120, 13, 13);
+            g2d.setColor(new Color(255, 143, 143));
+            g2d.fillOval(502 + x, 184 + y, 13, 13);
+            g2d.fillOval(452 + x, 154 + y, 13, 13);
+            g2d.fillOval(370 + x, 165 + y, 13, 13);
+            g2d.fillOval(310 + x, 120 + y, 13, 13);
+            g2d.fillOval(390 + x, 235 + y, 13, 13);
+            g2d.fillOval(406 + x, 110 + y, 13, 13);
+            g2d.fillOval(446 + x, 70 + y, 13, 13);
 
-            //trailing lines
+            // trailing lines
             g2d.setStroke(new BasicStroke(2));
-            g2d.drawLine(462, 229, 470, 221);
-            g2d.drawLine(467, 229, 475, 221);
-            g2d.drawLine(412, 199, 420, 191); 
-            g2d.drawLine(417, 199, 425, 191);
+            g2d.drawLine(512 + x, 179 + y, 520 + x, 171 + y);
+            g2d.drawLine(517 + x, 179 + y, 525 + x, 171 + y);
+            g2d.drawLine(462 + x, 149 + y, 470 + x, 141 + y);
+            g2d.drawLine(467 + x, 149 + y, 475 + x, 141 + y);
 
-            g2d.drawLine(330, 210, 338, 202); 
-            g2d.drawLine(335, 210, 343, 202);
+            g2d.drawLine(380 + x, 160 + y, 388 + x, 152 + y);
+            g2d.drawLine(385 + x, 160 + y, 393 + x, 152 + y);
 
-            g2d.drawLine(270, 165, 278, 157); 
-            g2d.drawLine(275, 165, 283, 157);
+            g2d.drawLine(320 + x, 115 + y, 328 + x, 107 + y);
+            g2d.drawLine(325 + x, 115 + y, 333 + x, 107 + y);
 
-            g2d.drawLine(350, 280, 358, 272); 
-            g2d.drawLine(355, 280, 363, 272);
+            g2d.drawLine(400 + x, 230 + y, 408 + x, 222 + y);
+            g2d.drawLine(405 + x, 230 + y, 413 + x, 222 + y);
 
-            g2d.drawLine(366, 155, 374, 147); 
-            g2d.drawLine(371, 155, 379, 147);
+            g2d.drawLine(416 + x, 105 + y, 424 + x, 97 + y);
+            g2d.drawLine(421 + x, 105 + y, 429 + x, 97 + y);
 
-            g2d.drawLine(406, 115, 414, 107); 
-            g2d.drawLine(411, 115, 419, 107);
+            g2d.drawLine(456 + x, 65 + y, 464 + x, 57 + y);
+            g2d.drawLine(461 + x, 65 + y, 469 + x, 57 + y);
         }
         //Toxic Visuals
         else if (Gengar.getToxic() == true){
@@ -122,25 +131,29 @@ public class Animation extends JPanel{
 
         //Shadow Punch visuals
         else if (Gengar.getShadowPunch() == true){
+
+            int x = Gengar.getXX();
+            int y = Gengar.getYY();
+
             g2d.setColor(Color.BLACK);
-            g2d.fillRect(300, 150, 100, 60);
-            g2d.fillRect(294, 210, 50, 30);
+            g2d.fillRect(300+x, 230+y, 100, 60);
+            g2d.fillRect(294+x, 290+y, 50, 30);
 
             g2d.setColor(new Color(59, 68, 75));
-            g2d.fillRect(305, 155, 90, 50);
-            g2d.fillRect(299, 215, 40, 20);
+            g2d.fillRect(305+x, 235+y, 90, 50);
+            g2d.fillRect(299+x, 295+y, 40, 20);
 
             g2d.setColor(Color.BLACK);
-            g2d.fillRect(320, 170, 8, 39);
-            g2d.fillRect(372, 170, 8, 39);
-            g2d.fillRect(346, 170, 8, 39);
+            g2d.fillRect(320+x, 250+y, 8, 39);
+            g2d.fillRect(372+x, 250+y, 8, 39);
+            g2d.fillRect(346+x, 250+y, 8, 39);
 
             //trailing lines
             g2d.setStroke(new BasicStroke(2));
-            g2d.drawLine(280, 270, 290, 255);
-            g2d.drawLine(270, 260, 280, 245);
-            g2d.drawLine(260, 250, 270, 235);
-            g2d.drawLine(250, 240, 260, 225);
+            g2d.drawLine(280+x, 350+y, 290 + x, 335 + y);
+            g2d.drawLine(270+x, 340+y, 280 + x, 325 + y);
+            g2d.drawLine(260+x, 330+y, 270 + x, 315 + y);
+            g2d.drawLine(250+x, 320+y, 260 + x, 305 + y);
         }
     }
 }
