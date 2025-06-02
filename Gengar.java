@@ -36,7 +36,6 @@ private static boolean tox5 = false;
         b.setBounds(200, 0, 600, 480);
         frame.add(b); // adds Animation to frame
         frame.setLayout(null);
-        frame.add(this);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("Gengar Simulator by Kevin Tran");
         
@@ -48,6 +47,8 @@ private static boolean tox5 = false;
         Border border = BorderFactory.createLineBorder(Color.WHITE, 1);
         tip.setVisible(false);
         tip.setBorder(border);
+        tip.setOpaque(true);
+        tip.setBackground(Color.BLACK);
 
         frame.getContentPane().setBackground(new Color(10, 10, 40)); //changing background color
         b.setBackground(new Color(10, 10, 40));
@@ -58,6 +59,9 @@ private static boolean tox5 = false;
         button1.setFont(new Font("Verdana", Font.BOLD, 14));
         button1.setForeground(Color.WHITE);
         button1.setBackground(new Color (68, 46, 117));
+        button1.setOpaque(true);
+        button1.setContentAreaFilled(true);
+        button1.setBorderPainted(false); 
 
         JButton button2 = new JButton();
         button2.setText("Dream Eater");
@@ -65,6 +69,9 @@ private static boolean tox5 = false;
         button2.setFont(new Font("Verdana", Font.BOLD, 14));
         button2.setForeground(Color.WHITE);
         button2.setBackground(new Color (240, 84, 123));
+        button2.setOpaque(true);
+        button2.setContentAreaFilled(true);
+        button2.setBorderPainted(false); 
 
         JButton button3 = new JButton();
         button3.setText("Toxic");
@@ -72,6 +79,9 @@ private static boolean tox5 = false;
         button3.setFont(new Font("Verdana", Font.BOLD, 14));
         button3.setForeground(Color.WHITE);
         button3.setBackground(new Color (158, 98, 227));
+        button3.setOpaque(true);
+        button3.setContentAreaFilled(true);
+        button3.setBorderPainted(false); 
 
         JButton button4 = new JButton();
         button4.setText("Shadow Punch");
@@ -79,6 +89,9 @@ private static boolean tox5 = false;
         button4.setFont(new Font("Verdana", Font.BOLD, 14));
         button4.setForeground(Color.WHITE);
         button4.setBackground(new Color (61, 48, 31));
+        button4.setOpaque(true);
+        button4.setContentAreaFilled(true);
+        button4.setBorderPainted(false); 
 
         JSeparator groundLine = new JSeparator(JSeparator.HORIZONTAL); //sets up JSeparator
         groundLine.setBounds(0, 500, 1300, 500);
@@ -222,53 +235,60 @@ private static boolean tox5 = false;
 
         button1.addMouseListener(new MouseAdapter() { // adds mouseListener to each JButton to displays attack stats
             public void mouseEntered(MouseEvent m){ //tracks if mouse enters JButton, when it does change JLabel to display stats about attack move
-                tip.setText("<html> Shadow Ball <br> Category: Special <br> Type: Ghost <br> The user hurls a shadowy <br> blob at the target <br> Power: 80 Accuracy: 100</html>");
+                tip.setText("<html> <b>Shadow Ball</b> <br> Category: Special <br> Type: Ghost <br> The user hurls a shadowy <br> blob at the target <br> Power: 80 Accuracy: 100</html>");
                 tip.setVisible(true);
+                tip.setHorizontalAlignment(SwingConstants.LEFT);
+                button1.setBackground(new Color (108, 86, 157));
             }
     
             public void mouseExited(MouseEvent m){ //tracks if mouse exits JButton, when it does, remove visbility of JButton
                 if (moveUsed == false) //however if moveUsed is true (user clicks on move), the JLabel will stay even after exiting and if statement won't run
                 tip.setVisible(false);
-                
+                button1.setBackground(new Color (68, 46, 117));
             }
         });
 
         button2.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent m){
-                tip.setText("<html> Dream Eater <br> Category: Special <br> Type: Psychic <br> The user eats the dreams of a <br> of a sleeping target.<br> Power: 100 Accuracy: 100</html>");
+                tip.setText("<html> <b>Dream Eater</b> <br> Category: Special <br> Type: Psychic <br> The user eats the dreams of a <br> of a sleeping target.<br> Power: 100 Accuracy: 100</html>");
                 tip.setVisible(true);
+                tip.setHorizontalAlignment(SwingConstants.LEFT);
+                button2.setBackground(new Color(242, 110, 143));
             }
     
             public void mouseExited(MouseEvent m){
                 if (moveUsed == false)
                 tip.setVisible(false);
-                
+                button2.setBackground(new Color (240, 84, 123));
             }
         });
 
         button3.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent m){
-                tip.setText("<html> Toxic <br> Category: Status <br> Type: Poison <br> A technique that badly poisons the target with intense poison.<br> Power:-- Accuracy: 90</html>");
+                tip.setText("<html> <b>Toxic</b> <br> Category: Status <br> Type: Poison <br> A technique that badly poisons the target.<br> Power:-- Accuracy: 90</html>");
                 tip.setVisible(true);
+                button3.setBackground(new Color(198, 138, 255));
             }
     
             public void mouseExited(MouseEvent m){
                 if (moveUsed == false)
                 tip.setVisible(false);
-                
+                button3.setBackground(new Color (158, 98, 227));
             }
         });
 
         button4.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent m){
-                tip.setText("<html> Shadow Punch <br> Category: Physical <br> Type: Dark <br> The user throws a punch from the shadows. Lands w/o fail. <br> Power:60 Accuracy: 100</html>");
+                tip.setText("<html> <b>Shadow Punch</b> <br> Category: Physical <br> Type: Dark <br> The user throws a punch from the shadows. Lands w/o fail. <br> Power: 60 Accuracy: 100</html>");
                 tip.setVisible(true);
+                button4.setBackground(new Color(101, 88, 71));
+
             }
     
             public void mouseExited(MouseEvent m){
                 if (moveUsed == false)
                 tip.setVisible(false);
-                
+                button4.setBackground(new Color (61, 48, 31));
             }
         });
 
