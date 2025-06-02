@@ -2,6 +2,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +27,13 @@ private static boolean tox3 = false;
 private static boolean tox4 = false; 
 private static boolean tox5 = false; 
 
+ImageIcon originalSoundOnIcon = new ImageIcon(getClass().getResource("/assets/sound_on.png")); //image for sound-on
+Image scaledSoundOnIcon = originalSoundOnIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+ImageIcon resizedSoundOnIcon = new ImageIcon(scaledSoundOnIcon);
+
+ImageIcon originalSoundOffIcon = new ImageIcon(getClass().getResource("/assets/sound_off.png")); //image for sound-off
+Image scaledSoundOffIcon = originalSoundOffIcon.getImage().getScaledInstance(50, 40, Image.SCALE_SMOOTH);
+ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
 
     public Gengar()
     {
@@ -33,6 +41,7 @@ private static boolean tox5 = false;
         frame.setSize(1300,700);
         this.setPreferredSize(new Dimension(1300,700));
         Animation b = new Animation(); // creates new instance of Animation and adds to Gengar constructor
+        audio m = new audio(); // creates new instance of audio and adds to Gengar constructor
         b.setBounds(200, 0, 600, 480);
         frame.add(b); // adds Animation to frame
         frame.setLayout(null);
@@ -52,6 +61,14 @@ private static boolean tox5 = false;
 
         frame.getContentPane().setBackground(new Color(10, 10, 40)); //changing background color
         b.setBackground(new Color(10, 10, 40));
+
+        JButton toggleButton = new JButton(resizedSoundOffIcon);
+        toggleButton.setBounds(1200, 10, 60, 60);
+        toggleButton.setBackground(new Color(30, 30, 122));
+        toggleButton.setOpaque(true);
+        toggleButton.setContentAreaFilled(true);
+        toggleButton.setBorderPainted(false); 
+        toggleButton.setFocusPainted(false);
 
         JButton button1 = new JButton(); //sets up JButton visuals
         button1.setText("Shadow Ball");
@@ -233,6 +250,16 @@ private static boolean tox5 = false;
         }).start();
         });
 
+        toggleButton.addActionListener(e -> {
+            m.toggleMusic();
+            if(m.getIsPlaying()){
+                toggleButton.setIcon(resizedSoundOnIcon);
+            }
+            else{
+                toggleButton.setIcon(resizedSoundOffIcon);
+            }
+        });
+
         button1.addMouseListener(new MouseAdapter() { // adds mouseListener to each JButton to displays attack stats
             public void mouseEntered(MouseEvent m){ //tracks if mouse enters JButton, when it does change JLabel to display stats about attack move
                 tip.setText("<html> <b>Shadow Ball</b> <br> Category: Special <br> Type: Ghost <br> The user hurls a shadowy <br> blob at the target <br> Power: 80 Accuracy: 100</html>");
@@ -296,6 +323,7 @@ private static boolean tox5 = false;
         frame.add(button2);
         frame.add(button3);
         frame.add(button4);
+        frame.add(toggleButton);
         frame.add(groundLine);
         frame.setVisible(true);
         repaint();

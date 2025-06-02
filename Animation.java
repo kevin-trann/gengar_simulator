@@ -18,8 +18,8 @@ public class Animation extends JPanel{
         g2d.setStroke(new BasicStroke(3));
         g2d.drawOval(0, 403, 425, 50);
 
-        g2d.setColor(new Color(125, 120, 163));
         // body
+        g2d.setColor(new Color(125, 120, 163));
         g2d.fillOval(130, 233, 175, 200);
 
         // arms
