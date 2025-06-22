@@ -21,6 +21,27 @@ private static boolean shadowPunch = false; //Tracks if Shadow Punch is activate
 private static int x = 0; //x-value for animation
 private static int y = 0; //y-value for animation
 
+private static boolean showLog = true;
+
+private static boolean showShadowBall = true;
+private static boolean showExplosion = false;
+
+private static boolean showShadowPunch = true;
+private static boolean showShadowSpot = false;
+
+private static boolean showDream1 = true;
+private static boolean showDream2 = true;
+private static boolean showDream3 = true;
+private static boolean showDream4 = true;
+private static boolean showDream5 = true;
+private static boolean showDream6 = true;
+private static boolean showDream7 = true;
+private static boolean showZ1 = false;
+private static boolean showZ2 = false;
+private static boolean showZ3 = false;
+
+
+private static boolean paintLog = false;
 private static boolean tox1 = false; //for Toxic animation
 private static boolean tox2 = false; 
 private static boolean tox3 = false; 
@@ -125,14 +146,23 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
             dreamEater = false; // turns off other moves to ensure it doesnt draw two moves at once if a move was used before this
             toxic = false; 
             shadowPunch = false;
+            showLog = true;
+            showShadowBall = true;
+            showExplosion = false;
+            paintLog=false;
 
             x = 0;
             y = 0;
 
         new Thread(() -> {
-            for(int i = 0; i < 235; i++){
+            for(int i = 0; i < 205; i++){
                 x = x+=1;
                 y = y-=1.01;
+                if(i == 204){
+                    showLog = false;
+                    showShadowBall = false;
+                    showExplosion = true;
+                }
                 b.repaint(); //repaints drawing with new shadow ball visuals
 
                 try {
@@ -155,15 +185,60 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
             dreamEater = true;
             toxic = false;
             shadowPunch = false;
+            showLog = true;
+            paintLog=false;
+            showDream1 = true;
+            showDream2 = true;
+            showDream3 = true;
+            showDream4 = true;
+            showDream5 = true;
+            showDream6 = true;
+            showDream7 = true;
+            showZ1 = false;
+            showZ2 = false;
+            showZ3 = false;
 
             x = 0;
             y = 0;
 
         new Thread(() -> {
-            for(int i = 0; i < 65; i++){
+            for(int i = 0; i < 210; i++){ // 164, 207, 139, 119, 69, 64, 100
                 x = x-=1;
                 y = y+=1;
-                b.repaint(); //repaints drawing with new shadow ball visuals
+                if(i >= 63){
+                    showDream1 = false;
+                }
+                if(i >= 68){
+                    showDream2 = false;
+                }
+                if(i >= 99){
+                    showDream3 = false;
+                }
+                if(i >= 118){
+                    showDream4 = false;
+                }
+                if(i >= 138){
+                    showDream5 = false;
+                }
+                if(i >= 163){
+                    showDream6 = false;
+                }
+                if(i >= 206){
+                    showDream7 = false;
+                }
+
+                if(i >=70){
+                    showZ1 = true;
+                }
+
+                if(i >= 140){
+                    showZ2 = true;
+                }
+
+                if(i >= 209){
+                    showZ3 = true;
+                }
+                b.repaint(); 
 
                 try {
                     Thread.sleep(8);
@@ -185,6 +260,8 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
             dreamEater = false;
             toxic = true;
             shadowPunch = false;
+            showLog = true;
+            paintLog=false;
 
             tox1 = false;
             tox2 = false;
@@ -193,7 +270,7 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
             tox5 = false;
             
             new Thread(() -> {
-            for(int i = 0; i < 6; i++){
+            for(int i = 0; i < 7; i++){
                 if(i >=1){
                     tox1 = true;
                 }
@@ -208,6 +285,11 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
                 }
                 if(i >=5){
                     tox5 = true;
+                
+                }
+                if(i >=6){
+                
+                    paintLog = true;
                 }
                 b.repaint(); //repaints drawing with new shadow ball visuals
 
@@ -231,14 +313,26 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
             dreamEater = false;
             toxic = false;
             shadowPunch = true;
+            showLog = true;
+            paintLog=false;
+            showShadowPunch = true;
+            showShadowSpot = false;
 
             x = 0;
             y = 0;
             
             new Thread(() -> {
-            for(int i = 0; i < 170; i++){
+            for(int i = 0; i < 300; i++){
                 x = x+=1;
                 y = y-=1.01;
+                if(i >= 169){
+                    showShadowPunch = false;
+                    paintLog = true;
+                }
+
+                if(i >= 299){
+                    showShadowSpot = true;
+                }
                 b.repaint(); //repaints drawing with new shadow ball visuals
 
                 try {
@@ -337,10 +431,29 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
     public static int getXX() {return x;}
     public static int getYY() {return y;}
 
+    public static boolean getShowLog(){return showLog;}
+    public static boolean getShowShadowBall(){return showShadowBall;}
+    public static boolean getShowExplosion(){return showExplosion;}
+
+    public static boolean getPaintLog(){return paintLog;}
     public static boolean getTox1(){return tox1;}
     public static boolean getTox2(){return tox2;}
     public static boolean getTox3(){return tox3;}
     public static boolean getTox4(){return tox4;}
     public static boolean getTox5(){return tox5;}
+
+    public static boolean getDream1(){return showDream1;}
+    public static boolean getDream2(){return showDream2;}
+    public static boolean getDream3(){return showDream3;}
+    public static boolean getDream4(){return showDream4;}
+    public static boolean getDream5(){return showDream5;}
+    public static boolean getDream6(){return showDream6;}
+    public static boolean getDream7(){return showDream7;}
+    public static boolean getZ1(){return showZ1;}
+    public static boolean getZ2(){return showZ2;}
+    public static boolean getZ3(){return showZ3;}
+
+    public static boolean getShowShadowPunch(){return showShadowPunch;}
+    public static boolean getShowShadowSpot(){return showShadowSpot;}
 
 }

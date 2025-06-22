@@ -11,6 +11,8 @@ public class Animation extends JPanel{
 
         //platform
         g2d.setColor(new Color(245, 245, 220));
+
+        
         g2d.fillOval(0, 403, 425, 50);
 
         //platform outline
@@ -49,19 +51,30 @@ public class Animation extends JPanel{
 
 
         //log
+
+        if (Gengar.getShowLog()){
         g2d.setColor(new Color(86,50,50));
+        if(Gengar.getPaintLog() && Gengar.getToxic()){
+                g2d.setColor(new Color (158, 98, 227));
+            }
+        else if(Gengar.getPaintLog() && Gengar.getShadowPunch()){
+                g2d.setColor(Color.BLACK);
+            }
         g2d.fillRect(500, 30, 46, 110);
         g2d.fillArc(500, 15, 46, 30, 0, 180);
         g2d.fillArc(500, 120, 46, 30, 180, 180);
         g2d.fillRect(480, 50, 26, 10);
         g2d.fillRect(540, 100, 26, 10);
+        }
 
         //Shadow Ball visuals
         if (Gengar.getShadowBall() == true){ //if Shadow Ball is clicked, draw visuals for Shadow Ball
 
             int x = Gengar.getXX();
             int y = Gengar.getYY();
+
             
+            if(Gengar.getShowShadowBall()){
             g2d.setColor(new Color(48, 25, 52));
             g2d.fillOval(250 + x, 263 + y, 70, 70);
 
@@ -81,7 +94,41 @@ public class Animation extends JPanel{
             g2d.fillOval(246 + x, 319 + y, 10, 10);
             g2d.fillOval(316 + x, 319 + y, 10, 10);
             g2d.fillOval(312 + x, 264 + y, 10, 10);
-        
+            }
+
+            if(Gengar.getShowExplosion()){
+                g2d.setColor(new Color(48, 25, 52));
+                g2d.fillOval(455, 8, 70, 70);
+                g2d.fillOval(405, 28, 70, 70);
+                g2d.fillOval(385, 78, 70, 70);
+                g2d.fillOval(405, 128, 70, 70);
+                g2d.fillOval(445, 148, 70, 70);
+                g2d.fillOval(495, 138, 70, 70);
+                g2d.fillOval(505, 103, 70, 70);
+                g2d.fillOval(505, 43, 70, 70); 
+                g2d.fillOval(485, 78, 70, 70);
+                g2d.fillOval(445, 70, 100, 100);
+
+                g2d.setColor(Color.BLACK);
+                g2d.fillOval(395, 20, 20, 20);
+                g2d.fillOval(555, 20, 20, 20);
+                g2d.fillOval(552, 205, 20, 20);
+                g2d.fillOval(392, 205, 20, 20);
+
+                g2d.setColor(new Color(237, 142, 233));
+                g2d.setStroke(new BasicStroke(3));
+                g2d.drawLine(400, 120, 500, 20);
+                g2d.drawLine(410, 130, 510, 30);
+                g2d.drawLine(420, 140, 510, 50);
+                g2d.drawLine(420, 160, 530, 50);
+                g2d.drawLine(420, 180, 550, 50);
+                g2d.drawLine(440, 180, 560, 60);
+                g2d.drawLine(460, 180, 567, 73);
+                g2d.drawLine(460, 200, 540, 120);
+                g2d.drawLine(470, 210, 560, 120);
+                g2d.drawLine(490, 210, 560, 140);
+                
+            }
             
         }
 
@@ -94,35 +141,64 @@ public class Animation extends JPanel{
 
             //pink circles
             g2d.setColor(new Color(255, 143, 143));
-            g2d.fillOval(502 + x, 184 + y, 13, 13);
-            g2d.fillOval(452 + x, 154 + y, 13, 13);
-            g2d.fillOval(370 + x, 165 + y, 13, 13);
-            g2d.fillOval(310 + x, 120 + y, 13, 13);
-            g2d.fillOval(390 + x, 235 + y, 13, 13);
-            g2d.fillOval(406 + x, 110 + y, 13, 13);
-            g2d.fillOval(446 + x, 70 + y, 13, 13);
 
-            // trailing lines
-            g2d.setStroke(new BasicStroke(2));
+            if(Gengar.getDream7()){
+            g2d.fillOval(502 + x, 184 + y, 13, 13);
             g2d.drawLine(512 + x, 179 + y, 520 + x, 171 + y);
             g2d.drawLine(517 + x, 179 + y, 525 + x, 171 + y);
-            g2d.drawLine(462 + x, 149 + y, 470 + x, 141 + y);
-            g2d.drawLine(467 + x, 149 + y, 475 + x, 141 + y);
+            }
 
-            g2d.drawLine(380 + x, 160 + y, 388 + x, 152 + y);
-            g2d.drawLine(385 + x, 160 + y, 393 + x, 152 + y);
-
-            g2d.drawLine(320 + x, 115 + y, 328 + x, 107 + y);
-            g2d.drawLine(325 + x, 115 + y, 333 + x, 107 + y);
-
+            if(Gengar.getDream1()){
             g2d.drawLine(400 + x, 230 + y, 408 + x, 222 + y);
             g2d.drawLine(405 + x, 230 + y, 413 + x, 222 + y);
+            g2d.fillOval(390 + x, 235 + y, 13, 13);
+            }
 
+            if(Gengar.getDream5()){
+            g2d.fillOval(452 + x, 154 + y, 13, 13);
+            g2d.drawLine(462 + x, 149 + y, 470 + x, 141 + y);
+            g2d.drawLine(467 + x, 149 + y, 475 + x, 141 + y);
+            }
+
+            if(Gengar.getDream2()){
+            g2d.fillOval(370 + x, 165 + y, 13, 13);
+            g2d.drawLine(380 + x, 160 + y, 388 + x, 152 + y);
+            g2d.drawLine(385 + x, 160 + y, 393 + x, 152 + y);
+            }
+
+            if(Gengar.getDream3()){
+            g2d.fillOval(310 + x, 120 + y, 13, 13);
+            g2d.drawLine(320 + x, 115 + y, 328 + x, 107 + y);
+            g2d.drawLine(325 + x, 115 + y, 333 + x, 107 + y);
+            }
+
+            if(Gengar.getDream4()){
+            g2d.fillOval(406 + x, 110 + y, 13, 13);
             g2d.drawLine(416 + x, 105 + y, 424 + x, 97 + y);
             g2d.drawLine(421 + x, 105 + y, 429 + x, 97 + y);
+            }
 
+            if(Gengar.getDream6()){
+            g2d.fillOval(446 + x, 70 + y, 13, 13);
             g2d.drawLine(456 + x, 65 + y, 464 + x, 57 + y);
             g2d.drawLine(461 + x, 65 + y, 469 + x, 57 + y);
+            }
+
+            g2d.setColor(Color.WHITE);
+            g2d.setFont(new Font("SansSerif", Font.BOLD, 20));  // Adjust size as needed
+
+            if (Gengar.getZ1()){
+            g2d.drawString("Z", 555, 40);  
+            }
+
+            if(Gengar.getZ2()){
+            g2d.drawString("Z", 565, 30); 
+            }
+            
+            if(Gengar.getZ3()){
+            g2d.drawString("Z", 575, 20);  
+            } 
+
         }
         //Toxic Visuals
         else if (Gengar.getToxic() == true){
@@ -134,6 +210,8 @@ public class Animation extends JPanel{
             boolean bubbles5 = Gengar.getTox5();
 
             g2d.setColor(new Color (158, 98, 227));
+
+            
 
             //bubbles
             
@@ -178,6 +256,8 @@ public class Animation extends JPanel{
             int x = Gengar.getXX();
             int y = Gengar.getYY();
 
+            if(Gengar.getShowShadowPunch()){
+
             g2d.setColor(Color.BLACK);
             g2d.fillRect(300+x, 230+y, 100, 60);
             g2d.fillRect(294+x, 290+y, 50, 30);
@@ -192,11 +272,24 @@ public class Animation extends JPanel{
             g2d.fillRect(346+x, 250+y, 8, 39);
 
             //trailing lines
-            g2d.setStroke(new BasicStroke(2));
+            g2d.setStroke(new BasicStroke(3));
             g2d.drawLine(280+x, 350+y, 290 + x, 335 + y);
             g2d.drawLine(270+x, 340+y, 280 + x, 325 + y);
             g2d.drawLine(260+x, 330+y, 270 + x, 315 + y);
             g2d.drawLine(250+x, 320+y, 260 + x, 305 + y);
+            }
+
+            if(Gengar.getShowShadowSpot()){
+                g2d.setColor(Color.WHITE);
+                g2d.setStroke(new BasicStroke(2));
+                g2d.drawLine(523, 30, 522, 50);
+                g2d.drawLine(522, 50, 524, 70);
+                g2d.drawLine(524, 70, 523, 90);
+                g2d.drawLine(523, 90, 525, 110);
+                g2d.drawLine(525, 110, 523, 140);
+                
+                
+            }
         }
     }
 }
