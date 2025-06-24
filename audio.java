@@ -1,6 +1,5 @@
 import javax.sound.sampled.*;
 
-
 public class audio {
     private Clip clip;
     private boolean isPlaying = false;

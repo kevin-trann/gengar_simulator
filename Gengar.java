@@ -13,22 +13,27 @@ import javax.swing.WindowConstants;
 import javax.swing.border.Border;
 
 public class Gengar extends JPanel {
-private boolean moveUsed = false; //Tracks if a move is used (used in the mouseListener)
-private static boolean shadowBall = false; //Tracks if Shadow Ball is activated (true if clicked)
-private static boolean dreamEater = false; //Tracks if Dream Eater is activated (true if clicked)
-private static boolean toxic = false; //Tracks if Toxic is activated (true if clicked)
-private static boolean shadowPunch = false; //Tracks if Shadow Punch is activated (true if clicked)
-private static int x = 0; //x-value for animation
-private static int y = 0; //y-value for animation
 
-private static boolean showLog = true;
+//tracks if a move has been selected before (used in action listener)
+private boolean moveUsed = false; 
 
-private static boolean showShadowBall = true;
+//booleans to check if a move has been selected
+private static boolean shadowBall = false; 
+private static boolean dreamEater = false; 
+private static boolean toxic = false; 
+private static boolean shadowPunch = false; 
+
+private static int x = 0; //tracks x-value for animation
+private static int y = 0; //tracks y-value for animation
+
+private static boolean showLog = true; //boolean if log is visible or not
+private static boolean paintLog = false; //boolean if log changes color from default
+
+//booleans for Shadow Ball animation
+private static boolean showShadowBall = true; 
 private static boolean showExplosion = false;
 
-private static boolean showShadowPunch = true;
-private static boolean showShadowSpot = false;
-
+//booleans for Dream Eater animation
 private static boolean showDream1 = true;
 private static boolean showDream2 = true;
 private static boolean showDream3 = true;
@@ -40,14 +45,18 @@ private static boolean showZ1 = false;
 private static boolean showZ2 = false;
 private static boolean showZ3 = false;
 
-
-private static boolean paintLog = false;
+//booleans for Toxic animation
 private static boolean tox1 = false; //for Toxic animation
 private static boolean tox2 = false; 
 private static boolean tox3 = false; 
 private static boolean tox4 = false; 
 private static boolean tox5 = false; 
 
+//booleans for Shadow Punch animation
+private static boolean showShadowPunch = true;
+private static boolean showShadowSpot = false;
+
+//importing sound icons for sound on and sound off
 ImageIcon originalSoundOnIcon = new ImageIcon(getClass().getResource("/assets/sound_on.png")); //image for sound-on
 Image scaledSoundOnIcon = originalSoundOnIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
 ImageIcon resizedSoundOnIcon = new ImageIcon(scaledSoundOnIcon);
@@ -163,7 +172,7 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
                     showShadowBall = false;
                     showExplosion = true;
                 }
-                b.repaint(); //repaints drawing with new shadow ball visuals
+                b.repaint(); 
 
                 try {
                     Thread.sleep(4);
@@ -291,7 +300,7 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
                 
                     paintLog = true;
                 }
-                b.repaint(); //repaints drawing with new shadow ball visuals
+                b.repaint(); 
 
                 try {
                     Thread.sleep(300);
@@ -428,19 +437,15 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
     public static boolean getDreamEater() {return dreamEater;}
     public static boolean getToxic() {return toxic;}
     public static boolean getShadowPunch() {return shadowPunch;}
+
     public static int getXX() {return x;}
     public static int getYY() {return y;}
 
     public static boolean getShowLog(){return showLog;}
+    public static boolean getPaintLog(){return paintLog;}
+
     public static boolean getShowShadowBall(){return showShadowBall;}
     public static boolean getShowExplosion(){return showExplosion;}
-
-    public static boolean getPaintLog(){return paintLog;}
-    public static boolean getTox1(){return tox1;}
-    public static boolean getTox2(){return tox2;}
-    public static boolean getTox3(){return tox3;}
-    public static boolean getTox4(){return tox4;}
-    public static boolean getTox5(){return tox5;}
 
     public static boolean getDream1(){return showDream1;}
     public static boolean getDream2(){return showDream2;}
@@ -452,6 +457,12 @@ ImageIcon resizedSoundOffIcon = new ImageIcon(scaledSoundOffIcon);
     public static boolean getZ1(){return showZ1;}
     public static boolean getZ2(){return showZ2;}
     public static boolean getZ3(){return showZ3;}
+
+    public static boolean getTox1(){return tox1;}
+    public static boolean getTox2(){return tox2;}
+    public static boolean getTox3(){return tox3;}
+    public static boolean getTox4(){return tox4;}
+    public static boolean getTox5(){return tox5;}
 
     public static boolean getShowShadowPunch(){return showShadowPunch;}
     public static boolean getShowShadowSpot(){return showShadowSpot;}

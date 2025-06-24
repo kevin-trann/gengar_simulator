@@ -1,14 +1,9 @@
 
-
-
-
-
-
 public class Project2Runner {
     
     /*
      * Name: <Kevin Tran>
-     * Student ID: <501292982>
+     * 
      * 
      ******** Project Description ********
      * 
@@ -50,10 +45,7 @@ public class Project2Runner {
      * that connects to each button is located from line 75 to line 125. The 
      * MouseListener code is located from line 127 to line 177.
      */
-
     public static void main(String[] args) {
         Gengar a = new Gengar(); 
     }
-
-
 }

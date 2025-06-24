@@ -3,7 +3,6 @@ import javax.swing.*;
 
 public class Animation extends JPanel{
 
-
     @Override
     public void paintComponent(Graphics g) { //method to draw 2D shapes
         super.paintComponent(g); //draws just background (to update visuals)
@@ -11,8 +10,6 @@ public class Animation extends JPanel{
 
         //platform
         g2d.setColor(new Color(245, 245, 220));
-
-        
         g2d.fillOval(0, 403, 425, 50);
 
         //platform outline
@@ -29,7 +26,6 @@ public class Animation extends JPanel{
         g2d.fillPolygon(new int [] {340,310,310}, new int [] {330,310, 330}, 3);
         g2d.fillPolygon(new int [] {340,310,310}, new int [] {320,300, 320}, 3);
         g2d.fillPolygon(new int [] {330,300,300}, new int [] {340,320, 340}, 3);
-
         g2d.fillOval(250, 290, 80, 60);
 
         // tail
@@ -41,7 +37,7 @@ public class Animation extends JPanel{
         g2d.fillOval(237, 370, 60, 60);
         g2d.fillPolygon(new int [] {300,260,260}, new int [] {440,410, 440}, 3);
 
-        // top
+        // spikes
         g2d.fillPolygon(new int [] {130,145,175}, new int [] {230,278,247}, 3);
         g2d.fillPolygon(new int [] {320,280,260}, new int [] {230,310,248}, 3);
         g2d.fillPolygon(new int [] {190,197,237}, new int [] {240,220, 240}, 3);
@@ -51,14 +47,17 @@ public class Animation extends JPanel{
 
 
         //log
-
         if (Gengar.getShowLog()){
         g2d.setColor(new Color(86,50,50));
-        if(Gengar.getPaintLog() && Gengar.getToxic()){
-                g2d.setColor(new Color (158, 98, 227));
+
+        //changes log to light purple if Toxic is selected
+        if(Gengar.getPaintLog() && Gengar.getToxic()){ 
+                g2d.setColor(new Color (158, 98, 227)); 
             }
+
+        //changes log to black if Shadow Punch is selected
         else if(Gengar.getPaintLog() && Gengar.getShadowPunch()){
-                g2d.setColor(Color.BLACK);
+                g2d.setColor(Color.BLACK); 
             }
         g2d.fillRect(500, 30, 46, 110);
         g2d.fillArc(500, 15, 46, 30, 0, 180);
@@ -68,12 +67,12 @@ public class Animation extends JPanel{
         }
 
         //Shadow Ball visuals
-        if (Gengar.getShadowBall() == true){ //if Shadow Ball is clicked, draw visuals for Shadow Ball
+        if (Gengar.getShadowBall() == true){ 
 
             int x = Gengar.getXX();
             int y = Gengar.getYY();
 
-            
+        //visuals for main Shadow Ball
             if(Gengar.getShowShadowBall()){
             g2d.setColor(new Color(48, 25, 52));
             g2d.fillOval(250 + x, 263 + y, 70, 70);
@@ -96,6 +95,7 @@ public class Animation extends JPanel{
             g2d.fillOval(312 + x, 264 + y, 10, 10);
             }
 
+        //visuals for Shadow Ball explosion
             if(Gengar.getShowExplosion()){
                 g2d.setColor(new Color(48, 25, 52));
                 g2d.fillOval(455, 8, 70, 70);
@@ -139,12 +139,13 @@ public class Animation extends JPanel{
             int y = Gengar.getYY();
 
 
-            //pink circles
+            
             g2d.setColor(new Color(255, 143, 143));
 
+            //checks if pink circle collides with gengar; disappears if it does
             if(Gengar.getDream7()){
-            g2d.fillOval(502 + x, 184 + y, 13, 13);
-            g2d.drawLine(512 + x, 179 + y, 520 + x, 171 + y);
+            g2d.fillOval(502 + x, 184 + y, 13, 13); //pink circles
+            g2d.drawLine(512 + x, 179 + y, 520 + x, 171 + y); //trailing lines
             g2d.drawLine(517 + x, 179 + y, 525 + x, 171 + y);
             }
 
@@ -184,8 +185,9 @@ public class Animation extends JPanel{
             g2d.drawLine(461 + x, 65 + y, 469 + x, 57 + y);
             }
 
+            //visuals to show sleeping log
             g2d.setColor(Color.WHITE);
-            g2d.setFont(new Font("SansSerif", Font.BOLD, 20));  // Adjust size as needed
+            g2d.setFont(new Font("SansSerif", Font.BOLD, 20));  
 
             if (Gengar.getZ1()){
             g2d.drawString("Z", 555, 40);  
@@ -200,9 +202,10 @@ public class Animation extends JPanel{
             } 
 
         }
-        //Toxic Visuals
+        //Toxic visuals
         else if (Gengar.getToxic() == true){
 
+            //booleans to "animate" bubbles floating up by making them appear
             boolean bubbles1 = Gengar.getTox1();
             boolean bubbles2 = Gengar.getTox2();
             boolean bubbles3 = Gengar.getTox3();
@@ -211,10 +214,7 @@ public class Animation extends JPanel{
 
             g2d.setColor(new Color (158, 98, 227));
 
-            
-
             //bubbles
-            
             if(bubbles1){
             g2d.fillOval(482, 114, 10, 10);
             g2d.fillOval(556, 124, 10, 10);
@@ -239,15 +239,11 @@ public class Animation extends JPanel{
             g2d.fillOval(552, 24, 16, 16);
             }
             
-
             //puddles
             g2d.fillOval(445, 139, 60, 10);
             g2d.fillOval(515, 148, 60, 10);
             g2d.fillOval(465, 148, 60, 10);
-            g2d.fillOval(540, 140, 60, 10);
-            
-            
-            
+            g2d.fillOval(540, 140, 60, 10);      
         }
 
         //Shadow Punch visuals
@@ -258,6 +254,7 @@ public class Animation extends JPanel{
 
             if(Gengar.getShowShadowPunch()){
 
+            //visuals for main fist of Shadow Punch
             g2d.setColor(Color.BLACK);
             g2d.fillRect(300+x, 230+y, 100, 60);
             g2d.fillRect(294+x, 290+y, 50, 30);
@@ -279,6 +276,7 @@ public class Animation extends JPanel{
             g2d.drawLine(250+x, 320+y, 260 + x, 305 + y);
             }
 
+            //visuals for log changing after Shadow Punch
             if(Gengar.getShowShadowSpot()){
                 g2d.setColor(Color.WHITE);
                 g2d.setStroke(new BasicStroke(2));
