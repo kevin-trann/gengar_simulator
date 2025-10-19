@@ -1,4 +1,4 @@
-This gengar battle simulator was a project I created for my Introduction to Java class. It features a simple pokemon battle simulator where you use a pokemon known as Gengar in battle.
+This Gengar Battle Simulator is a project I created based on my favorite Pokémon, Gengar! It features a battle simulator where you control Gengar and enjoy custom attack animations and handcrafted visual effects during battle.
 
 FEATURES
 - Custom attack animations and visuals: Uses coordinates and linear algebra concepts
