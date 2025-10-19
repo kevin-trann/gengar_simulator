@@ -7,7 +7,7 @@ to draw animations
 • Sound effects/music: Optional music to enhance user experience
 • Simple GUI: Built using JSwing library for an interactive and user-friendly experience
 
-HOW TO RUN
+HOW TO RUN 
 1. Download all project files
 2. Open project in Java IDE
 3. Run ProjectRunner2.java file to start Gengar Simulator
