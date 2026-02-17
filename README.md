@@ -16,6 +16,5 @@ REQUIREMENTS
 Java JDK 8 or higher
 
 DEMO
-(https://youtu.be/Si3SkKmlEiE)
-
+https://github.com/kevin-trann/gengar_simulator/blob/main/GengarSimulatorDemo%20-%20Made%20with%20Clipchamp_1771361754404.mp4
 
