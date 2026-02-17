@@ -17,8 +17,4 @@ Java JDK 8 or higher
 
 DEMO
 (https://youtu.be/Si3SkKmlEiE)
-<video width="600" controls>
-  <source src="https://github.com/kevin-trann/gengar_simulator/raw/main/assets/Screen%20Recording%202025-11-05%20074024.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-https://github.com/user-attachments/assets/e77d64bb-1f5a-4a07-a46a-ae8ce35e5622
+
